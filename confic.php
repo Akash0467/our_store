@@ -17,4 +17,12 @@ catch(PDOException $e) {
 
 require_once('function.php');
 
+
+function APP_URL(){
+  echo "http://localhost/our_store";
+};
+function GET_APP_URL(){
+  echo "http://localhost/our_store";
+};
+
 ?>

@@ -1,5 +1,6 @@
 <?php 
 require_once('confic.php');
+session_start();
 
 if(isset($_POST['registration_from'])){
     $name=$_POST['name'];
@@ -28,6 +29,9 @@ if(isset($_POST['registration_from'])){
     elseif(empty($email)){
         $error = "Email is required!";
     }
+    elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+        $error = "Invalid Email!";
+    }
     elseif($emailCount !=0){
         $error = "Email olready used!";
     }
@@ -53,10 +57,20 @@ if(isset($_POST['registration_from'])){
         $created_at = date('Y-m-d H:i:s');
 
         $insert = $connection->prepare("INSERT INTO  users(name,username,email,mobile,password,buisnessname,address,email_code,mobile_code,gender,date_of_birth,status,created_at) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
-        $insert->execute(array($name,$username,$email,$mobile,$password,$business_name,$address,$email_code,$mobile_code,$gender,$date_of_birth,"pending",$created_at));
+        $insert->execute(array($name,$username,$email,$mobile,$password,$business_name,$address,$email_code,$mobile_code,$gender,$date_of_birth,"Pending",$created_at));
 
         if($insert == true){
             $success = "User Registration Success!";
+
+            // Sent Email For Verification
+            $message = "Your Verification Code is: ".$email_code;
+            mail($email,"Email Verification",$message);
+
+            $_SESSION['user_email'] = $email;
+            $_SESSION['user_mobile'] = $mobile;
+
+            header('location:varification.php');
+
         }
         else{
             $error ="Registration Failed!";
