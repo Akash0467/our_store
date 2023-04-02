@@ -1,7 +1,7 @@
 <?php 
 require_once('../confic.php');
-require_once('../includs/header.php');
-// get_header(); 
+// require_once('../includs/header.php');
+get_header(); 
 
 ?>
 <div class="row">
@@ -167,7 +167,7 @@ require_once('../includs/header.php');
                 </div>
             </div>
         </div>
-    </div>
+</div>
 
 <div class="row">
     <div class="col-lg-3 col-sm-6">
@@ -461,7 +461,7 @@ require_once('../includs/header.php');
 
 
 
-<div class="row">
+<di class="row">
         <div class="col-lg-3 col-sm-6">
             <div class="card">
                 <div class="social-graph-wrapper widget-facebook">
@@ -545,6 +545,8 @@ require_once('../includs/header.php');
                     </div>
                 </div>
             </div>
-        </div>
-
-<?php get_footer();  ?>
+        </div>   
+<?php 
+// require_once('../includs/footer.php');
+get_footer(); 
+?>

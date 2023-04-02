@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(!isset($_SESSION['user'])){
-    header('location:login.php');
+    header('location:'.GET_APP_URL().'/login.php');
 }
 
 $profile = getProfile($_SESSION['user']['id']);
@@ -24,6 +24,8 @@ $profile = getProfile($_SESSION['user']['id']);
     <!-- Chartist -->
     <link rel="stylesheet" href="../plugins/chartist/css/chartist.min.css">
     <link rel="stylesheet" href="../plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
+    <!-- Summernote -->
+    <link href="../plugins/summernote/dist/summernote.css" rel="stylesheet">
     <!-- Custom Stylesheet -->
     <link href="../css/style.css" rel="stylesheet">
     <link href="../css/custom.css" rel="stylesheet">
@@ -57,7 +59,7 @@ Nav header start
 ***********************************-->
 <div class="nav-header">
     <div class="brand-logo">
-        <a href="index.php">
+        <a href="<?php APP_URL(); ?>/dashboard/index.php">
             <b class="logo-abbr"><img src="../images/logo.png" alt=""> </b>
             <span class="logo-compact"><img src="../images/logo-compact.png" alt=""></span>
             <span class="brand-title">
@@ -156,7 +158,7 @@ Header start
                         </li>
                         
                         <li>
-                            <a href="<?php APP_URL(); ?>/dashboard/Change_password.php"><i class="icon-lock"></i> <span>Change Password</span></a>
+                            <a href="<?php APP_URL(); ?>/dashboard/change_password.php"><i class="icon-lock"></i> <span>Change Password</span></a>
                         </li>
                         <li><a href="<?php APP_URL(); ?>/includs/logout.php"><i class="icon-key"></i> <span>Logout</span></a></li>
                     </ul>
@@ -179,18 +181,18 @@ Sidebar start
 <ul class="metismenu" id="menu">
 <li class="nav-label" style="color: #000; font-weight: 400; font-size: 13px;">Dashboard</li>
 <li>
-    <a href="index.php"> 
+    <a href="<?php APP_URL(); ?>/dashboard/index.php"> 
         <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
     </a>
 </li>
-<li class="nav-label" style="color: #000; font-weight: 400; font-size: 13px;">Products</li>
+<li class="nav-label" style="color: #000; font-weight: 400; font-size: 13px;">Categories</li>
 <li class="mega-menu mega-menu-sm">
     <a class="has-arrow" href="javascript:void()" aria-expanded="false">
         <i class="fa fa-shopping-cart menu-icon"></i><span class="nav-text">Categories</span>
     </a>
     <ul aria-expanded="false">
         <li><a href="<?php APP_URL();?>/categories/add-new-categories.php">Add New</a></li>
-        <li><a href="<?php APP_URL();?>/categories/categories.php">All Categories</a></li>
+        <li><a href="<?php APP_URL();?>/categories/index.php">All Categories</a></li>
     </ul>
 </li>
 
@@ -199,30 +201,31 @@ Sidebar start
         <i class="fa fa-shopping-cart menu-icon"></i><span class="nav-text">Products</span>
     </a>
     <ul aria-expanded="false">
-        <li><a href="add-new-product.php">Add New</a></li>
-        <li><a href="products.php">All Products
+        <li><a href="<?php APP_URL();?>/products/add-new-products.php">Add New</a></li>
+        <li><a href="<?php APP_URL();?>/products/index.php">All Products
         </a></li>
+    </ul>
+</li>
+
+<li class="nav-label" style="color: #000; font-weight: 400; font-size: 13px;">Manufactures</li>
+<li class="mega-menu mega-menu-sm">
+    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+        <i class="fa fa-shopping-cart menu-icon"></i><span class="nav-text">Manufacture</span>
+    </a>
+    <ul aria-expanded="false">
+        <li><a href="<?php APP_URL();?>/manufactures/add-new-manufacture.php">Add New</a></li>
+        <li><a href="<?php APP_URL();?>/manufactures/index.php">All Categories</a></li>
     </ul>
 </li>
 
 <li class="nav-label" style="color: #000; font-weight: 400; font-size: 13px;">Purchases</li>
 <li class="mega-menu mega-menu-sm">
     <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-        <i class="fa fa-shopping-cart menu-icon"></i><span class="nav-text">Manufacture</span>
-    </a>
-    <ul aria-expanded="false">
-        <li><a href="add-new-manufacture.php">Add New</a></li>
-        <li><a href="manufactures.php">All Manufacture</a></li>
-    </ul>
-</li>
-
-<li class="mega-menu mega-menu-sm">
-    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
         <i class="fa fa-shopping-cart menu-icon"></i><span class="nav-text">Purchase</span>
     </a>
     <ul aria-expanded="false">
-        <li><a href="add-new-purchase.php">Add New</a></li>
-        <li><a href="purchases.php">All Purchase</a></li>
+        <li><a href="<?php APP_URL();?>/purchases/add-new-purchases.php">Add New</a></li>
+        <li><a href="<?php APP_URL();?>/purchases/index.php">All Purchase</a></li>
     </ul>
 </li>
 

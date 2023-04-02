@@ -8,8 +8,8 @@ $profile = getProfile($_SESSION['user']['id']);
             <div class="row page-titles mx-0">
                 <div class="col p-md-0">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="">Home</a></li>
+                        <li class="breadcrumb-item"><a href="<?php APP_URL(); ?>/dashboard/">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="profile.php">Profile</a></li>
                     </ol>
                 </div>
             </div>
@@ -82,7 +82,7 @@ $profile = getProfile($_SESSION['user']['id']);
                                 </ul>
                                 <br>
                                 <div class="col-12 text-center">
-                                        <button class="btn btn-danger px-5">Update Profile</button>
+                                        <a href="update_profile.php" class="btn btn-danger px-5">Update Profile</a>
                                 </div><br>
                                 <div class="col-12 text-center">
                                         <a href="change_password.php" class="btn btn-warning px-5">Change Password</a>

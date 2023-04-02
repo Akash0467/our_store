@@ -1,4 +1,4 @@
-</div>
+
         </div>
         <!-- #/ container -->
     </div>
@@ -49,6 +49,9 @@
 <!-- ChartistJS -->
 <script src="./plugins/chartist/js/chartist.min.js"></script>
 <script src="./plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
+<!-- Summernote -->
+<script src="../plugins/summernote/dist/summernote.min.js"></script>
+<script src="../plugins/summernote/dist/summernote-init.js"></script>
 
 
 

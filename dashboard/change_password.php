@@ -40,7 +40,7 @@ if(isset($_POST['change_pass_form'])){
             <div class="row page-titles mx-0">
                 <div class="col p-md-0">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="<?php APP_URL(); ?>/dashboard/">Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="">Change Password</a></li>
                     </ol>
                 </div>
@@ -67,7 +67,7 @@ if(isset($_POST['change_pass_form'])){
                                     </div>
                                     <script>
                                         setTimeout(() =>{
-                                            window.location.href="logout.php";
+                                            window.location.href="../includs/logout.php";
                                         },2000);
                                     </script>
                                 <?php endif; ?>

@@ -30,9 +30,13 @@ if(isset($_POST["login_from"])){
                 $_SESSION['user_mobile'] = $userData['mobile'];
 
                 $email_code = rand(111111,999999);
-                // $mobile_code = rand(111111,999999);
+
                 $stm=$connection->prepare("UPDATE users SET email_code=? WHERE email=?");
                 $stm->execute(array($email_code,$userData['email']));
+
+                $mobile_code = rand(111111,999999);
+                $stm=$connection->prepare("UPDATE users SET mobile_code=? WHERE mobile=?");
+                $stm->execute(array($mobile_code,$userData['mobile']));
 
                 // Send Email For Verification
                 $message = "Your Verification Code is: ".$email_code;
